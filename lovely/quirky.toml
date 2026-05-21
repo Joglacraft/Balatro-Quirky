@@ -1,0 +1,23 @@
+[manifest]
+version = "1.0.0"
+dump_lua = true
+priority = 0
+
+[[patches]]
+[patches.pattern]
+target = "functions/common_events.lua"
+pattern = '''
+    return full_UI_table
+'''
+position = "before"
+payload = '''
+    if not G.PROFILES[G.SETTINGS.profile].dequirk then
+	    G.PROFILES[G.SETTINGS.profile].dequirk = {}
+    end
+    if G.localization.descriptions.Quirky[_c.key] and not QRK.table_contains(G.PROFILES[G.SETTINGS.profile].dequirk, _c.key) then
+        desc_nodes = {}
+        localize{type = 'descriptions', key = _c.key, set = "Quirky", nodes = desc_nodes, vars = {}}
+        full_UI_table.main = desc_nodes
+    end
+'''
+match_indent = true

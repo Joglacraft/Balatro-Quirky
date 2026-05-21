@@ -1,0 +1,10 @@
+{
+	"id": "qrk",
+	"name": "Quirky!",
+	"author": ["Evgast!"],
+	"description": "YAY, CANCER",
+	"prefix": "qrk",
+	"main_file": "main.lua",
+	"priority": 0,
+	"version": "0.0.0"
+}
