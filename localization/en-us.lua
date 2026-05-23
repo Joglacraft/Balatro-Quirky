@@ -70,7 +70,7 @@ return {
                     name = "",
                     text = {
                         "Meow :3",
-                        "Mrow purr {C:green}'Lucky'{mm} mrau"
+                        "Mrow purr {C:green}'Lucky'{} mrau"
                     }
                 },
                 j_square={
