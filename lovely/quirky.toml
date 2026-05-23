@@ -14,7 +14,7 @@ payload = '''
     if not G.PROFILES[G.SETTINGS.profile].dequirk then
 	    G.PROFILES[G.SETTINGS.profile].dequirk = {}
     end
-    if G.localization.descriptions.Quirky[_c.key] and not QRK.table_contains(G.PROFILES[G.SETTINGS.profile].dequirk, _c.key) then
+    if G.localization.descriptions.Quirky[_c.key] and ((not QRK.table_contains(G.PROFILES[G.SETTINGS.profile].dequirk, _c.key)) or QRK.config.vagueslop_mode) then
         desc_nodes = {}
         localize{type = 'descriptions', key = _c.key, set = "Quirky", nodes = desc_nodes, vars = {}}
         full_UI_table.main = desc_nodes
