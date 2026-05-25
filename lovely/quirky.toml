@@ -19,7 +19,8 @@ payload = '''
     if not G.PROFILES[G.SETTINGS.profile].dequirk then
 	    G.PROFILES[G.SETTINGS.profile].dequirk = {}
     end
-    if ((not QRK.table_contains(G.PROFILES[G.SETTINGS.profile].dequirk, _c.key)) or QRK.config.vagueslop_mode) then
+    if (((not QRK.table_contains(G.PROFILES[G.SETTINGS.profile].dequirk, _c.key)) or QRK.config.mode[2]) and not QRK.config.mode[3]) or
+    (QRK.config.mode[3] and _c.quirked) then
         if G.localization.descriptions.Quirky[_c.key] then
             set_quirky(_c.key)
         elseif G.localization.descriptions.Quirky[_c.key.."_"..1] then

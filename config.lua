@@ -1,0 +1,7 @@
+return {
+	["mode"] = {
+        [1] = true,
+        [2] = false,
+        [3] = false
+    }
+}

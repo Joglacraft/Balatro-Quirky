@@ -132,7 +132,56 @@ return {
                         "{C:mult}No one can escape",
                         "{C:mult}the miles"
                     }
+                },
+                j_swashbuckler = {
+                    text = {
+                        "Oi, o'er here landlubber! Me",
+                        "name's {C:attention}Jimbo McCready{}, lad,",
+                        "and me crew and I shall show ye",
+                        "what the {C:money}treasures{} of the seven",
+                        "seas has to {C:mult}offer{},",
+                        "also known as {C:attention}'Balatro'!"
+                    }
+                },
+                j_ring_master = {
+                    text = {
+                        "For my last trick,",
+                        "two {C:attention}identical{} cards!"
+                    }
+                },
+                j_duo = {
+                    text = {
+                        "Just the {C:attention}two{} of us, we",
+                        "can make it if we try"
+                    }
+                },
+                j_fibonacci = {
+                    text = {
+                        "...then you should have",
+                        "the ability to harness",
+                        "the power of {C:attention}infinity.{}"
+                    }
+                },
+                j_wee = {
+                    "{s:0.6}Hello, I'm {s:0.6,C:attention}Jimbo!{}{s:0.6} And I will show",
+                    "{s:0.6}you around the world of {s:0.6,C:attention}Balatro!"
+                },
+                j_flash = {
+                    "{s:1.1}J{} is for {s:1.1}Joker"
+                },
+                j_misprint = {
+                    "YAY! MISPRINT!"
+                },
+                j_photograph = {
+                    "{C:attention}Face{} chosen..."
                 }
             },
+    },
+    misc = {
+        dictionary = {
+            qrk_mode_1 = "Original",
+            qrk_mode_2 = "Vagueslop",
+            qrk_mode_3 = "Switch"
+        }
     }
 }

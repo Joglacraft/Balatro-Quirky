@@ -1,17 +1,35 @@
 QRK = SMODS.current_mod
 
+for k, v in pairs(QRK.config.mode) do
+    if v == true then
+        QRK.current_mode_option = k
+    end
+end
+
+G.FUNCS.qrk_option_cycle = function(args)
+  	if not args or not args.cycle_config then return end
+    if args.cycle_config.current_option then
+        for k, v in pairs(QRK.config.mode) do
+            if k == args.cycle_config.current_option then
+                QRK.config.mode[k] = true
+                QRK.current_mode_option = k
+            else
+                QRK.config.mode[k] = false
+            end
+        end
+    end
+end
+
 QRK.config_tab = function()
-    return {
-        n = G.UIT.ROOT,
-        config = { r = 0.1, minw = 8, align = "tm", padding = 0.2, colour = G.C.BLACK },
-        nodes = {
-            {n = G.UIT.R, config = { padding = 0.2 }, nodes = {
+    local mode_pages = {}
+    for i=1, #QRK.config.mode do
+        table.insert(mode_pages, localize("qrk_mode_"..i))
+    end
+    return { n = G.UIT.ROOT, config = { r = 0.1, minw = 8, align = "tm", padding = 0.2, colour = G.C.BLACK },nodes = {
+            { n = G.UIT.R, config = { padding = 0.2 }, nodes = {
                 {n = G.UIT.C, config = { align = "cm" }, nodes = {
                     {n = G.UIT.R, config = { align = "cm", padding = 0.01 }, nodes = {
-                        create_toggle({ label = "I don't want to know the effects", ref_table = QRK.config, ref_value = 'vagueslop_mode' })
-                    }},
-					{ n = G.UIT.R, config = { align = "cm", padding = 0.01 }, nodes = {
-                       {n = G.UIT.T, config = {text = "Jokers keep their quips instead of telling the info you need, duh", colour = G.C.UI.TEXT_LIGHT, scale = 0.3}}
+                        create_option_cycle({options = mode_pages, w = 4.5, cycle_shoulders = true, opt_callback = 'qrk_option_cycle', current_option = QRK.current_mode_option, colour = G.C.RED, no_pips = true, focus_args = {snap_to = true, nav = 'wide'}})
                     }},
                 }},
             }},
@@ -23,7 +41,7 @@ end
 QRK.calculate = function(self, context)
 	for k, v in pairs(G.jokers.cards) do
 		local key = v.config.center.key
-		if not QRK.config.vagueslop_mode then
+		if QRK.config.mode[1] then
 			if G.localization.descriptions.Quirky[key] then
 				if context.end_of_round and context.main_eval then
 					if not QRK.table_contains(G.PROFILES[G.SETTINGS.profile].dequirk, key) then
@@ -43,4 +61,18 @@ function QRK.table_contains(table, element)
         end
     end
     return false
+end
+
+local r_click = Controller.queue_R_cursor_press
+function Controller:queue_R_cursor_press(x, y)
+    local target = (self.HID.touch and self.cursor_hover.target) or self.hovering.target or self.focused.target
+    if QRK.config.mode[3] and target.config and target.config.center then
+        if target.config.center.quirked then
+            target.config.center.quirked = false
+        else
+            target.config.center.quirked = true
+        end
+        print(target.config.center.quirked)
+    end
+    return r_click(self, x, y)
 end
