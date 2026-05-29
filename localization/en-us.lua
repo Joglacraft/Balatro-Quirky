@@ -163,19 +163,74 @@ return {
                     }
                 },
                 j_wee = {
-                    "{s:0.6}Hello, I'm {s:0.6,C:attention}Jimbo!{}{s:0.6} And I will show",
-                    "{s:0.6}you around the world of {s:0.6,C:attention}Balatro!"
+                    text = {
+                        "{s:0.6}Hello, I'm {s:0.6,C:attention}Jimbo!{}{s:0.6} And I will show",
+                        "{s:0.6}you around the world of {s:0.6,C:attention}Balatro!"
+                    }
                 },
                 j_flash = {
-                    "{s:1.1}J{} is for {s:1.1}Joker"
+                    text = {
+                        "{s:1.1}J{} is for {s:1.1}Joker"
+                    }
                 },
                 j_misprint = {
-                    "YAY! MISPRINT!"
+                    text = {
+                        "YAY! MISPRINT!"
+                    }
                 },
                 j_photograph = {
-                    "{C:attention}Face{} chosen..."
+                    text = {
+                        "{C:attention}Face{} chosen..."
+                    }
+                },
+                j_vagabond = {
+                    text = {
+                        "{C:attention}Vagabond{} reportedly went",
+                        "into a round with {C:money}$5"
+                    }
+                },
+                j_space = {
+                    text = {
+                        "One small step for a {C:attention}Card,",
+                        "one giant leap for {C:attention}Jokerkind"
+                    }
+                },
+                j_mime = {
+                    text = {
+                        "He would love to tell you",
+                        "his effect, unfortunately",
+                        "Cards don't have a body"
+                    }
+                },
+                j_dna = {
+                    text = {
+                        "An alien virus that fell",
+                        "to earth on a meteor",
+                        "underwent a {C:attention}DNA{} mutation",
+                        "to become this {C:attention}Joker{}"
+                    }
                 }
             },
+            Other = {
+                qrk_mode_guide = {
+                    name = "",
+                    text = {
+                        "{s:1.5,C:attention}Original{}",
+                        "Jokers start with quips. To unlock the",
+                        "original description, win a Blind",
+                        "with a quipped Joker",
+                        "{s:1.5,C:attention}Vagueslop{}",
+                        "Jokers always quip. Winning a Blind",
+                        "won't unlock descriptions for",
+                        "the Original mode",
+                        "{s:1.5,C:attention}Switch{}",
+                        "Jokers quip by default, right click",
+                        "to swap to original description",
+                        "Winning a Blind won't unlock",
+                        "descriptions for the Original mode",
+                    }
+                }
+            }
     },
     misc = {
         dictionary = {
