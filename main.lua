@@ -93,7 +93,7 @@ local function has_quirck(key)
             if char == '_' then break end
             str = char..""
         end
-        if k == key..'_'..str then return true end
+        if tonumber(str) and k == key..'_'..str then return true end
     end
     return false
 end
