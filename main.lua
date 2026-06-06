@@ -84,16 +84,33 @@ function QRK.table_contains(table, element)
     return false
 end
 
+local function has_quirck(key)
+    if G.localization.descriptions.Quirky[key] then return true end
+    for k in pairs(G.localization.descriptions.Quirky) do
+        local str = ""
+        for i=string.len(k), 1, -1  do
+            local char = string.sub(k,i,i)
+            if char == '_' then break end
+            str = char..""
+        end
+        if tonumber(str) and k == key..'_'..str then return true end
+    end
+    return false
+end
+
 local r_click = Controller.queue_R_cursor_press
 function Controller:queue_R_cursor_press(x, y)
     local target = (self.HID.touch and self.cursor_hover.target) or self.hovering.target or self.focused.target
-    if QRK.config.mode[3] and target.config and target.config.center then
+    if QRK.config.mode[3] and target and target.config and target.config.center
+    and has_quirck(target.config.center.key) then
         if target.config.center.quirked then
             target.config.center.quirked = false
         else
             target.config.center.quirked = true
         end
-        print(target.config.center.quirked)
+        --print(target.config.center.quirked)
+        target:stop_hover()
+        target:hover()
     end
     return r_click(self, x, y)
 end
