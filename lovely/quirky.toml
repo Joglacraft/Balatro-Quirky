@@ -11,6 +11,9 @@ pattern = '''
 '''
 position = "before"
 payload = '''
+    if _c.quirked == nil then
+        _c.quirked = true
+    end 
     local function set_quirky(_key)
         desc_nodes = {}
         localize{type = 'descriptions', key = _key, set = "Quirky", nodes = desc_nodes, vars = {}}

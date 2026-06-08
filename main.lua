@@ -108,7 +108,6 @@ function Controller:queue_R_cursor_press(x, y)
         else
             target.config.center.quirked = true
         end
-        --print(target.config.center.quirked)
         target:stop_hover()
         target:hover()
     end

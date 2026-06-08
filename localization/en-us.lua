@@ -209,6 +209,25 @@ return {
                         "underwent a {C:attention}DNA{} mutation",
                         "to become this {C:attention}Joker{}"
                     }
+                },
+                j_invisible = {
+                    text = {
+                        "If he's {C:attention}invisible",
+                        "why can I sell him?"
+                    }
+                },
+                j_trio = {
+                    text = {
+                        "It's finally {C:attention}me{} and {C:attention}you{},",
+                        "and {C:attention}you{} and {C:attention}me{}, just {C:attention}us{},",
+                        "and your friend {C:attention}Jimbo{}"
+                    }
+                },
+                j_green_joker = {
+                    text = {
+                        "I'm {C:green}green{} because you",
+                        "can place me in your {C:attention}deck{}"
+                    }
                 }
             },
             Other = {
